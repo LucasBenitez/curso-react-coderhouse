@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
+MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem} from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import CartWidget from './CartWidget';
 class NavbarPage extends Component {
 state = {
   isOpen: false
@@ -39,17 +39,7 @@ render() {
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
-          <MDBNavbarNav right>
-         
-            <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-              <MDBIcon icon="shopping-cart" />
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              
-            </MDBNavItem>
-          </MDBNavbarNav>
+         <CartWidget/>
         </MDBCollapse>
       </MDBNavbar>
     </Router>

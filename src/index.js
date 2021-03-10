@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ItemListContainer from './components/ItemListContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App /> , <ItemListContainer/>
   </React.StrictMode>,
+  
   document.getElementById('root')
 );
 
