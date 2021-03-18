@@ -1,0 +1,30 @@
+[
+    {
+      "id": "jV3KMmQe",
+      "title": "Iphone 12",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 1200,
+      "pictureUrl": "./images/iphone-12.jpg"
+    },
+    {
+      "id": "JxK1EEtT",
+      "title": "Auriculares",
+      "description": "Orci vitae sapien dapibus, ut condimentum odio varius.",
+      "price": 700,
+      "pictureUrl": "./images/auriculares-logitech.jpg"
+    },
+    {
+      "id": "8rN8T0zK",
+      "title": "Parlante",
+      "description": "Donec vel ipsum ac libero rhoncus volutpat.",
+      "price": 59,
+      "pictureUrl": "./images/parlante.jpg"
+    },
+    {
+      "id": "wqDXMAbW",
+      "title": "Procesador",
+      "description": "Gravida lorem quis aliquet. Nullam ultricies varius nibh.",
+      "price": 26,
+      "pictureUrl": "./images/procesador.jpg"
+    }
+  ]

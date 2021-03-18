@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import ItemCount from "./ItemCount";
-import CardProducto from './CardProducto';
 import {Container} from 'react-bootstrap';
 import {MDBCardTitle} from 'mdbreact';
+
+import ItemCount from "../ItemCount/ItemCount";
+import ItemList from "../ItemList/ItemList";
+
+
   function ItemListContainer(props) {
     const [stockActual, setStockActual] = useState(5);
     const [carrito, setCarrito] = useState(0);
@@ -14,7 +17,10 @@ import {MDBCardTitle} from 'mdbreact';
     }
     return (
       <Container>
-        <CardProducto />
+        <h3>
+                {props.items ? '' : props.greeting}
+        </h3>
+        <ItemList items={props.items} />
         <hr></hr>
         <MDBCardTitle>Articulos del carrito: {carrito}</MDBCardTitle>
       <ItemCount stock={stockActual} initial={0} onAdd={agregarCarrito} />
