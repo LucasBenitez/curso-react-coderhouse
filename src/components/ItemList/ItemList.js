@@ -6,8 +6,7 @@ function ItemList (props) {
     <div className='container d-flex justify-content-center'>
       {
         props.items.map(
-          item => <Item key={item.id} item={item} />
-          
+          item => <Item key={item.id} item={item} /> 
         )
       }
     </div>

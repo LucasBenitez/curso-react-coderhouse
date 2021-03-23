@@ -6,15 +6,19 @@ import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 
 
+
   function ItemListContainer(props) {
     const [stockActual, setStockActual] = useState(5);
     const [carrito, setCarrito] = useState(0);
+
 
     const agregarCarrito = (e, stock) => {
         e.preventDefault();
         setStockActual(() => setStockActual(stockActual - stock));
         setCarrito(carrito + stock);
     }
+
+   
     return (
       <Container>
         <h3>

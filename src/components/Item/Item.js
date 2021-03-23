@@ -1,6 +1,5 @@
 
     import { Button , Card, Container} from 'react-bootstrap';
-
     function Item({item}){
 
             return (
@@ -13,7 +12,7 @@
                 {item.description}
                 </Card.Text>
                 <p className='font-weight-bold black-text'>${item.price}</p>
-                <Button variant="teal" >Comprar</Button>
+                <Button variant="teal">Comprar</Button>
                 </Card.Body>
         </Card>
         </Container>
