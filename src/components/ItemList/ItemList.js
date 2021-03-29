@@ -1,15 +1,19 @@
 import Item from "../Item/Item";
-
+import {MDBCol, MDBContainer, MDBRow}from 'mdbreact';
 function ItemList (props) {
 
   return (
-    <div className='container d-flex justify-content-center'>
+    <MDBContainer >
+<MDBRow >
       {
-        props.items.map(
-          item => <Item key={item.id} item={item} /> 
+        Object.keys(props.items).map(
+          (id) => {
+            return <Item key={id} id={id} item={props.items[id]} />;
+          }
         )
-      }
-    </div>
+        }
+</MDBRow>
+</MDBContainer>
   )
 };
 

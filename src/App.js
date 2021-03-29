@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; import
 'bootstrap-css-only/css/bootstrap.min.css'; import
 'mdbreact/dist/css/mdb.css';
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import { BrowserRouter as Router  , Switch , Route} from 'react-router-dom';
 
 import mock from "./mock.json";
@@ -24,9 +25,20 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar/>
-      <ItemListContainer items={items} greeting="There are no items yet" />
-      <ItemDetailContainer />
+      <BrowserRouter>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/">
+            <ItemListContainer />
+          </Route>
+          <Route exact path="/category/:id">
+          <ItemListContainer />
+          </Route>
+          <Route  path="/item/:id">
+            <ItemDetailContainer />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

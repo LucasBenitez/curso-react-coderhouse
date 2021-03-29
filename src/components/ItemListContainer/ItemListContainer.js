@@ -1,35 +1,72 @@
-import { useState } from 'react';
-import {Container} from 'react-bootstrap';
-import {MDBCardTitle} from 'mdbreact';
-
-import ItemCount from "../ItemCount/ItemCount";
+import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
+import { MDBCardTitle, MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+import ItemCategories from "../ItemCategories/ItemCategories";
+import mock from "../../mock.json";
+import { Link } from "react-router-dom";
 
+function ItemListContainer(props) {
+  const [stockActual, setStockActual] = useState(5);
+  const [carrito, setCarrito] = useState(0);
 
+  let [categories, setCategories] = useState("");
+  let [items, setItems] = useState("");
+  let [itemsFiltered, setItemsFiltered] = useState("");
+  let { id: idCategory } = useParams();
 
-  function ItemListContainer(props) {
-    const [stockActual, setStockActual] = useState(5);
-    const [carrito, setCarrito] = useState(0);
+  const agregarCarrito = (e, stock) => {
+    e.preventDefault();
+    setStockActual(() => setStockActual(stockActual - stock));
+    setCarrito(carrito + stock);
+  };
 
+  const getAll = () => {
+    fetch("https://mercado-privado-default-rtdb.firebaseio.com/.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setItems(result.items);
+        setCategories(result.categories);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
-    const agregarCarrito = (e, stock) => {
-        e.preventDefault();
-        setStockActual(() => setStockActual(stockActual - stock));
-        setCarrito(carrito + stock);
+  const filterByCategory = (_category, _items) => {
+    if (_items !== "") {
+      if (_category !== undefined) {
+        let filtered = Object.keys(_items)
+          .filter((key) => {
+            return _items[key].category === _category;
+          })
+          .reduce((obj, key) => {
+            obj[key] = _items[key];
+            return obj;
+          }, {});
+
+        setItemsFiltered(filtered);
+      } else {
+        setItemsFiltered(_items);
+      }
     }
+  };
+  useEffect(() => {
+    filterByCategory(idCategory, items);
+  }, [idCategory, items]);
 
-   
-    return (
-      <Container>
-        <h3>
-                {props.items ? '' : props.greeting}
-        </h3>
-        <ItemList items={props.items} />
-        <hr></hr>
-        <MDBCardTitle>Articulos del carrito: {carrito}</MDBCardTitle>
-      <ItemCount stock={stockActual} initial={0} onAdd={agregarCarrito} />
-      </Container>
-    );
-  }
+  useEffect(() => {
+    getAll();
+  }, []);
+  return (
+    <MDBContainer className="mt-3" >
+        <ItemCategories categories={categories} />
+      <ItemList items={itemsFiltered} />
+    </MDBContainer>
+  );
+}
 
 export default ItemListContainer;

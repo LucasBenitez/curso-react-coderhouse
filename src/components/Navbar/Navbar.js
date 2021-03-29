@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem} from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 class NavbarPage extends Component {
 state = {
@@ -14,27 +14,36 @@ toggleCollapse = () => {
 
 render() {
   return (
-    <Router>
       <MDBNavbar color="teal lighten-2" dark expand="md">
+      <MDBNavLink to={`/`} >
         <MDBNavbarBrand>
           <strong className="white-text">Mercado Privado</strong>
         </MDBNavbarBrand>
+        </MDBNavLink>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="#!">Incio</MDBNavLink>
+            
+              <MDBNavLink  to={`/`} exact >Incio</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline">Categorias</div>
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="#!">Celulares</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Auriculares</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Componentes de PC</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Parlantes</MDBDropdownItem>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem>
+                    <MDBNavLink to={`/category/Celulares`}exact className="black-text">
+                    Celulares
+                    </MDBNavLink>
+                    </MDBDropdownItem>
+                  <MDBDropdownItem>
+                  <MDBNavLink to={`/category/Auriculares`}exact className="black-text">Auriculares
+                  </MDBNavLink></MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <MDBNavLink to={`/category/Componentes`}exact  className="black-text">Componentes de PC</MDBNavLink></MDBDropdownItem>
+                  <MDBDropdownItem href="#!"><MDBNavLink to={`/category/Parlantes`}exact className="black-text" >Parlantes</MDBNavLink></MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
@@ -42,7 +51,6 @@ render() {
          <CartWidget/>
         </MDBCollapse>
       </MDBNavbar>
-    </Router>
 
     );
   }

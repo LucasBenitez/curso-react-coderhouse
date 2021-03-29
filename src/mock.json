@@ -1,38 +1,69 @@
-[
-    {
-      "id": "jV3KMmQe",
-      "title": "Iphone 12",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "price": 1200,
-      "stock": 12,
-      "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "pictureUrl": "./images/iphone-12.jpg"
-    },
-    {
-      "id": "JxK1EEtT",
-      "title": "Auriculares",
-      "description": "Orci vitae sapien dapibus, ut condimentum odio varius.",
-      "price": 700,
-      "stock": 12,
-      "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "pictureUrl": "./images/auriculares-logitech.jpg"
-    },
-    {
-      "id": "8rN8T0zK",
-      "title": "Parlante",
-      "description": "Donec vel ipsum ac libero rhoncus volutpat.",
-      "price": 59,
-      "stock": 12,
-      "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "pictureUrl": "./images/parlante.jpg"
-    },
-    {
-      "id": "wqDXMAbW",
-      "title": "Procesador",
-      "description": "Gravida lorem quis aliquet. Nullam ultricies varius nibh.",
-      "price": 26,
-      "stock": 12,
-      "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "pictureUrl": "./images/procesador.jpg"
-    }
-  ]
+{
+"items" : [
+
+  {
+    "id": "jV3KMmQe",
+    "title": "Iphone 12",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "price": 1200,
+    "stock": 12,
+    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "pictureUrl": "./images/iphone-12.jpg",
+    "category":"Celulares"
+  },
+  {
+    "id": "JxK1EEtT",
+    "title": "Auriculares",
+    "description": "Orci vitae sapien dapibus, ut condimentum odio varius.",
+    "price": 700,
+    "stock": 12,
+    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "pictureUrl": "./images/auriculares-logitech.jpg",
+    "category":"Auriculares"
+  },
+  {
+    "id": "8rN8T0zK",
+    "title": "Parlante",
+    "description": "Donec vel ipsum ac libero rhoncus volutpat.",
+    "price": 59,
+    "stock": 12,
+    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "pictureUrl": "./images/parlante.jpg",
+    "category":"Componentes"
+  },
+  {
+    "id": "wqDXMAbW",
+    "title": "Procesador",
+    "description": "Gravida lorem quis aliquet. Nullam ultricies varius nibh.",
+    "price": 26,
+    "stock": 12,
+    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "pictureUrl": "./images/procesador.jpg",
+    "category":"Parlantes"
+  }
+],
+"categories":{
+  "Celulares":{
+    "id":"1",
+    "description":"celulares",
+    "pictureUrl":"./images/categoria-cel.jpg"
+  },
+  "Auriculares":{
+    "id":"2",
+    "description":"auriculares",
+    "pictureUrl":"./images/categoria-auris.jpg"
+  },
+  "Componentes":{
+    "id":"3",
+    "description":"componentes",
+    "pictureUrl":"./images/categoria-pc.jpg"
+  },
+  "Parlantes":{
+    "id":"4",
+    "description":"parlantes",
+    "pictureUrl":"./images/categoria-parlante.jpg"
+  }
+
+}
+
+}

@@ -2,27 +2,37 @@ import { useState, useEffect } from 'react';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetailContainer.css";
-import { useParams } from 'react-router';
+import { useParams, Link } from "react-router-dom";
 import mock from "../../mock.json";
-import { MDBContainer } from 'mdbreact';
+import { MDBContainer , MDBNav, MDBNavLink , MDBIcon} from 'mdbreact';
 
 function ItemDetailContainer(props) {
     const [item, setItem] = useState('');
+    let { id } = useParams();
+    
+
+    const getItem = (id) => {
+      fetch(`https://mercado-privado-default-rtdb.firebaseio.com/items/${id}.json`)
+        .then(response => response.json())
+        .then((result) => setItem(result))
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
 
     useEffect(() => {
-      new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(mock);
-        }, 1000);
-      }).then((resultado) => setItem(resultado));
-    } , [item]);
-
+      getItem(id);
+    }, [id]);
 
     return (
 
-        <MDBContainer>
-          <ItemDetail item={"jV3KMmQe"} hidden/>
-        </MDBContainer>
+      <>
+            <MDBContainer className="mt-2">
+              <ItemDetail item={item} />
+            </MDBContainer>
+
+      
+    </>
 
     )
   };
