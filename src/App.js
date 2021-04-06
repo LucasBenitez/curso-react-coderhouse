@@ -5,10 +5,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; import
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import { BrowserRouter as Router  , Switch , Route} from 'react-router-dom';
-
+import Cart from "./components/Cart/Cart"
+import {CartProvider} from "./components/Context/CartContext"
 import mock from "./mock.json";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer  from "./components/ItemListDetailContainer/ItemDetailContainer";
+import CartWidget from './components/CartWidget/CartWidget';
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <CartProvider>
       <BrowserRouter>
         <Navbar/>
         <Switch>
@@ -37,8 +40,15 @@ function App() {
           <Route  path="/item/:id">
             <ItemDetailContainer />
           </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/cart">
+            <CartWidget />
+          </Route>
         </Switch>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

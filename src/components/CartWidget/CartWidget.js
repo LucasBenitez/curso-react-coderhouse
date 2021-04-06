@@ -5,7 +5,7 @@ class CartWidget extends Component{
         return(
             <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="#!">
+              <MDBNavLink className="waves-effect waves-light" to={`/cart`}>
               <MDBIcon icon="shopping-cart" />
               </MDBNavLink>
             </MDBNavItem>

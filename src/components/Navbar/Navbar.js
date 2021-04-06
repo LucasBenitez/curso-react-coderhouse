@@ -48,7 +48,9 @@ render() {
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
+         <MDBNavLink to={`/cart`}>
          <CartWidget/>
+         </MDBNavLink>
         </MDBCollapse>
       </MDBNavbar>
 

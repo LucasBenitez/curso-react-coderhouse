@@ -1,11 +1,16 @@
 import ItemCount from "../ItemCount/ItemCount";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useContext } from "react";
 import { Link } from "react-router-dom";
 import { MDBContainer, MDBNavLink, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import {CartContext} from '../Context/CartContext'
 function ItemDetail({ item }) {
   const initial = 0;
   const [stock, setStock] = useState(initial);
-  const availableStock = item.stock - stock;
+  const context = useContext(CartContext);
+ 
+  const stockInCart = context.getItemQty(item.id);
+  const [maxStock, setMaxStock] = useState(item.stock - stockInCart);
+  const availableStock = maxStock - stock;
 
   const Stock = () => {
     return (
@@ -21,7 +26,7 @@ function ItemDetail({ item }) {
     );
   };
   const NoStock = () => {
-    return <h3> No stock available </h3>;
+    return <h3> No hay stock disponible </h3>;
   };
   const Finish = () => {
     return (
@@ -39,7 +44,7 @@ function ItemDetail({ item }) {
     return (
       <>
         <MDBNavLink to="/cart" className="text-center">
-          <MDBBtn variant="teal">Añadir al carrito</MDBBtn>
+          <MDBBtn variant="teal" onClick={(e) => { onAddToCart(e) }}>Añadir al carrito</MDBBtn>
         </MDBNavLink>
       </>
     );
@@ -70,7 +75,11 @@ function ItemDetail({ item }) {
       setStock(stock - 1);
     }
   };
-
+  const onAddToCart = (e) => {
+    context.addItem(e, item, stock);
+    setMaxStock(maxStock - stock);
+    setStock(0);
+};
   const IsAvailable = item.stock > 0 ? Stock : NoStock;
   const FinalizarCompra = stock > 0 ? Finish : NoFinalizar;
   const SePuedeAñadir = stock > 0 ? AñadirCarrito : NoAñadirCarrito;
