@@ -14,6 +14,7 @@ function Cart(props) {
     const onSubstract = (e, item, quantity) => {
         context.substractItem(e, item, quantity)
     };
+    
     return (
         <MDBContainer >
             
@@ -47,8 +48,8 @@ function Cart(props) {
                
                     <MDBCardTitle className="text-center"><strong>Total:</strong> <span>${context.totalPrice}</span> </MDBCardTitle>
                     <MDBBtn onClick={() => { context.clear() }} className="mr-0">Vaciar carrito</MDBBtn> 
-                <MDBBtn to="/checkout" className={` ${context.cart.length === 0 ? 'disabled' : ''}`}  >
-                    <MDBNavLink to="/checkout" className="text-white">
+                <MDBBtn to="/order" className={` ${context.cart.length === 0 ? 'disabled' : ''}`}  >
+                    <MDBNavLink to="/order" className="text-white">
                     Confirmar compra
                     </MDBNavLink>
                     </MDBBtn>

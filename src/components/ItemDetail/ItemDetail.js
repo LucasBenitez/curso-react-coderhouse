@@ -32,7 +32,7 @@ function ItemDetail({ item }) {
     return (
       <>
         <MDBNavLink to="/cart" className="text-center">
-          <MDBBtn variant="teal">Finalizar compra</MDBBtn>
+          <MDBBtn variant="teal" to="/order">Finalizar compra</MDBBtn>
         </MDBNavLink>
       </>
     );
@@ -81,7 +81,7 @@ function ItemDetail({ item }) {
     setStock(0);
 };
   const IsAvailable = item.stock > 0 ? Stock : NoStock;
-  const FinalizarCompra = stock > 0 ? Finish : NoFinalizar;
+  const FinalizarCompra = stockInCart> 0 ? Finish : NoFinalizar;
   const SePuedeAñadir = stock > 0 ? AñadirCarrito : NoAñadirCarrito;
   return (
     <MDBContainer id={item.id}>
@@ -98,9 +98,6 @@ function ItemDetail({ item }) {
           <h1 className="h1-responsive font-weight-bold text-center my-5">
             {item.title}
           </h1>
-          <h2 className="text-center w-responsive mx-auto mb-3">
-            Stock : {availableStock}
-          </h2>
           <div className="text-center w-responsive mx-auto mb-5">
             {item.description}
           </div>

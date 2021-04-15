@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import ItemCount from '../ItemCount/ItemCount';
-import "./ItemDetailContainer.css";
 import { useParams, Link } from "react-router-dom";
 import mock from "../../mock.json";
 import { MDBContainer , MDBNav, MDBNavLink , MDBIcon} from 'mdbreact';

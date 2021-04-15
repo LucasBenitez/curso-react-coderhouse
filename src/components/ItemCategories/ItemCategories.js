@@ -10,7 +10,6 @@ import {
 } from "mdbreact";
 
 function ItemCategories({ categories }) {
-  //<img style={{width:'100px'}} src={categories[category].pictureUrl} alt="" />
   return (
     <MDBContainer className="mb-4">
       <MDBRow>

@@ -11,11 +11,11 @@ import mock from "./mock.json";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer  from "./components/ItemListDetailContainer/ItemDetailContainer";
 import CartWidget from './components/CartWidget/CartWidget';
-
-
+import Order from './components/Order/Order';
+import Checkout from './components/Checkout/Checkout';
 function App() {
   const [items, setItems] = useState([]);
-
+ 
 
   useEffect(() => {
     new Promise((resolve, reject) => {
@@ -25,6 +25,7 @@ function App() {
     }).then((resultado) => setItems(resultado));
   });
 
+  
   return (
     <div className="App">
       <CartProvider>
@@ -43,13 +44,18 @@ function App() {
           <Route exact path="/cart">
             <Cart />
           </Route>
-          <Route exact path="/cart">
-            <CartWidget />
+          <Route exact path="/order">
+            <Order />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </BrowserRouter>
       </CartProvider>
+     
     </div>
+    
   );
 }
 
